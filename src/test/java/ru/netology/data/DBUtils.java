@@ -1,4 +1,4 @@
-package data;
+package ru.netology.data;
 
 public class DBUtils {
 }
