@@ -2,10 +2,9 @@ package ru.netology.data;
 
 import com.github.javafaker.Faker;
 
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.Random;
+import java.time.LocalDate;
+import java.time.Year;
+import java.util.*;
 
 public class DataGenerator {
 
@@ -26,13 +25,20 @@ public class DataGenerator {
     }
 
     public static String getThisMonth() {
-        Calendar calendar = Calendar.getInstance();
-        return String.valueOf(calendar.get(Calendar.MONTH));
+        LocalDate date = LocalDate.now();
+        return String.format("%02d", date.getMonthValue());
+
+    }
+
+    public static String getValidMonth() {
+        var random = new Random();
+        var list = Arrays.asList("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+        String randomMonth = list.get(random.nextInt(list.size()));
+        return  randomMonth;
     }
 
     public static String getThisYear() {
-        Calendar calendar = Calendar.getInstance();
-        return String.valueOf(calendar.get(Calendar.YEAR));
+        return String.format("%ty", Year.now());
     }
 
     public static String getRandomInvalidName() {

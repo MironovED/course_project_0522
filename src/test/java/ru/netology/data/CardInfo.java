@@ -10,6 +10,7 @@ import static ru.netology.data.DataGenerator.*;
 @RequiredArgsConstructor
 @Value
 public class CardInfo {
+    private String cardNumber;
     private String name;
     private String codeCvcCvv;
     private String month;
@@ -17,7 +18,7 @@ public class CardInfo {
 
 
     public static CardInfo getApprovedCard() {
-        return new CardInfo(
+        return new CardInfo(approvedCard().cardNumber,
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getThisMonth(),
@@ -25,7 +26,7 @@ public class CardInfo {
     }
 
     public static CardInfo getDeclinedCard() {
-        return new CardInfo(
+        return new CardInfo(declinedCard().cardNumber,
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getThisMonth(),

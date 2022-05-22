@@ -2,9 +2,11 @@ package ru.netology.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.netology.data.CardInfo;
 
-import static com.codeborne.selenide.Condition.text;
+import ru.netology.data.CardInfo;
+import ru.netology.page.PaymentWithCard;
+import ru.netology.page.TitlePage;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class PaymentWithCardTest {
@@ -16,12 +18,10 @@ public class PaymentWithCardTest {
 
     @Test
     public void payApprovedCard(){
-        $("[role='button'] .button__content .button__text").click();
-
-
-
-
-
+        var titlePage = new TitlePage();
+        titlePage.openBuyCard();
+        var payment = new PaymentWithCard();
+        payment.paymentByCardOrCredit(CardInfo.getApprovedCard());
     }
 
 
