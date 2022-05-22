@@ -86,11 +86,14 @@ public class DataGenerator {
     }
 
 
-    public static String getRandomInvalidName() {
-        var random = new Random();
-        var list = Arrays.asList("", "+79008007060", "Alina_Fomina", "Olga", "Cветлана Виноградова", ";.,:%№!");
-        String randomName = list.get(random.nextInt(list.size()));
-        return randomName;
+    public static String getRandomInvalidName(String locale) {
+        Faker name = new Faker(new Locale(locale));
+        return name.name().firstName() + "_" + name.name().lastName();
+    }
+
+    public static String getFirstName(String locale) {
+        Faker name = new Faker(new Locale(locale));
+        return name.name().firstName();
     }
 
 }

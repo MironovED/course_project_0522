@@ -29,6 +29,7 @@ public class PaymentWithCardTest {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
         var payment = new PaymentWithCardPage();
+        payment.paymentByCardOrCredit(CardInfo.getApprovedCard());
 
     }
 

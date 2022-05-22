@@ -55,7 +55,7 @@ public class CardInfo {
                 getThisYear());
     }
 
-    public static CardInfo FifteenDigitCardNumber() {
+    public static CardInfo fifteenDigitCardNumber() {
         return new CardInfo(DataGenerator.getFifteenDigitCardNumber(),
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
@@ -74,7 +74,7 @@ public class CardInfo {
 
 //    Поле ВЛАДЕЛЕЦ
 
-    public static CardInfo getEmptyFieldName() {
+    public static CardInfo emptyFieldName() {
         return new CardInfo(approvedCard().cardNumber,
                 "",
                 DataGenerator.getCodeCvcCvv(),
@@ -82,7 +82,45 @@ public class CardInfo {
                 getThisYear());
     }
 
+    public static CardInfo invalidCharacters() {
+        return new CardInfo(approvedCard().cardNumber,
+                "?.:%№!",
+                DataGenerator.getCodeCvcCvv(),
+                getThisMonth(),
+                getThisYear());
+    }
 
+    public static CardInfo nameInCyrillic() {
+        return new CardInfo(approvedCard().cardNumber,
+                getValidName("ru"),
+                DataGenerator.getCodeCvcCvv(),
+                getThisMonth(),
+                getThisYear());
+    }
+
+    public static CardInfo numberNameField() {
+        return new CardInfo(approvedCard().cardNumber,
+                "12345",
+                DataGenerator.getCodeCvcCvv(),
+                getThisMonth(),
+                getThisYear());
+    }
+
+    public static CardInfo invalidNameField() {
+        return new CardInfo(approvedCard().cardNumber,
+                DataGenerator.getRandomInvalidName("EN"),
+                DataGenerator.getCodeCvcCvv(),
+                getThisMonth(),
+                getThisYear());
+    }
+
+    public static CardInfo onlyFirstNameField() {
+        return new CardInfo(approvedCard().cardNumber,
+                DataGenerator.getFirstName("EN"),
+                DataGenerator.getCodeCvcCvv(),
+                getThisMonth(),
+                getThisYear());
+    }
 
 
     //    Поле МЕСЯЦ
@@ -213,7 +251,7 @@ public class CardInfo {
 
 // Поле CVC/CVV
 
-    public static CardInfo getEmptyFieldCvcCvv() {
+    public static CardInfo emptyFieldCvcCvv() {
         return new CardInfo(approvedCard().cardNumber,
                 getValidName("EN"),
                 "",
@@ -221,7 +259,7 @@ public class CardInfo {
                 getThisYear());
     }
 
-    public static CardInfo getNullFieldCvcCvv() {
+    public static CardInfo nullFieldCvcCvv() {
         return new CardInfo(approvedCard().cardNumber,
                 getValidName("EN"),
                 "0",
@@ -229,7 +267,7 @@ public class CardInfo {
                 getThisYear());
     }
 
-    public static CardInfo getTwoCharactersFieldCvcCvv() {
+    public static CardInfo twoCharactersFieldCvcCvv() {
         return new CardInfo(approvedCard().cardNumber,
                 getValidName("EN"),
                 "12",
@@ -244,7 +282,6 @@ public class CardInfo {
                 getThisMonth(),
                 getThisYear());
     }
-
 
 
     @Value
