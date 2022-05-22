@@ -1,5 +1,7 @@
 package ru.netology.test;
 
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,9 +9,11 @@ import ru.netology.data.CardInfo;
 import ru.netology.page.PaymentWithCardPage;
 import ru.netology.page.TitlePage;
 
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PaymentWithCardTest {
+
 
     @BeforeEach
     public void setUp() {
@@ -30,6 +34,8 @@ public class PaymentWithCardTest {
         titlePage.openBuyCard();
         var payment = new PaymentWithCardPage();
         payment.paymentByCardOrCredit(CardInfo.getApprovedCard());
+
+
 
     }
 
