@@ -10,9 +10,9 @@ public class TitlePage {
     private SelenideElement buyInCredit = $$("[role='button'] .button__content .button__text").last();
 
 
-    public PaymentWithCard openBuyCard() {
+    public PaymentWithCardPage openBuyCard() {
         buyCard.click();
-        return new PaymentWithCard();
+        return new PaymentWithCardPage();
     }
 
 
