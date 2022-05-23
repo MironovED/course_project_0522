@@ -3,6 +3,8 @@ package ru.netology.dbutils;
 import lombok.SneakyThrows;
 import lombok.Value;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,6 +28,66 @@ public class DbUtils {
         }
     }
 
+    @SneakyThrows
+    public static int getCountLinesOrderEntity() {
+        var countSQL = "SELECT COUNT(*) FROM order_entity;";
+        var result = 0;
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+                var countStmt = conn.createStatement();
+        ) {
+            try (var rs = countStmt.executeQuery(countSQL)) {
+                if (rs.next()) {
+                    var count = rs.getInt(1);
+                    result = count;
+                }
+            }
+        }
+        return result;
+    }
+
+    @SneakyThrows
+    public static int getCountLinesPaymentEntity() {
+        var countSQL = "SELECT COUNT(*) FROM payment_entity;";
+        var result = 0;
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+                var countStmt = conn.createStatement();
+        ) {
+            try (var rs = countStmt.executeQuery(countSQL)) {
+                if (rs.next()) {
+                    var count = rs.getInt(1);
+                    result = count;
+                }
+            }
+        }
+        return result;
+    }
+
+    @SneakyThrows
+    public static int getCountLinesCreditRequestEntity() {
+        var countSQL = "SELECT COUNT(*) FROM credit_request_entity;";
+        var result = 0;
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+                var countStmt = conn.createStatement();
+        ) {
+            try (var rs = countStmt.executeQuery(countSQL)) {
+                if (rs.next()) {
+                    var count = rs.getInt(1);
+                    result = count;
+                }
+            }
+        }
+        return result;
+    }
+
 
     @Value
     public static class CreditRequestEntityTable {
@@ -34,28 +96,6 @@ public class DbUtils {
         private String created;
         private String status;
 
-        @SneakyThrows
-
-        public static String getStatusCredit() {
-            var statusCredit = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1;";
-
-            String status = null;
-            try (
-                    var conn = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/app", "app", "pass"
-                    );
-                    var countStmt = conn.createStatement();
-            ) {
-                try (var rs = countStmt.executeQuery(statusCredit)) {
-                    if (rs.next()) {
-                        status = rs.getString("status");
-                    }
-                    return status;
-
-                }
-
-            }
-        }
     }
 
     @Value
@@ -64,7 +104,6 @@ public class DbUtils {
         private String created;
         private String creditId;
         private String paymentId;
-
 
     }
 
@@ -75,8 +114,6 @@ public class DbUtils {
         private String status;
         private String transactionId;
 
-
     }
-
 
 }

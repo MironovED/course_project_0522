@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PaymentWithCardPage {
+
     private SelenideElement heading = $$(".heading").findBy(Condition.text("Оплата по карте"));
     private SelenideElement cardNumberField = $("[placeholder='0000 0000 0000 0000']");
     private SelenideElement monthField = $("[placeholder='08']");
@@ -20,12 +21,12 @@ public class PaymentWithCardPage {
     private SelenideElement codeField = $("[placeholder='999']");
     private SelenideElement buttonContinue = $$(".button .button__content .button__text").last();
 
-    private SelenideElement successfulOperation = $(withText("Операция одобрена Банком."));
-    private SelenideElement errorOperation = $(withText("Ошибка! Банк отказал в проведении операции."));
-    private ElementsCollection wrongFormat = $$(withText("Неверный формат"));
-    private SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
-    private SelenideElement cardExpired = $(withText("Истёк срок действия карты"));
-    private SelenideElement invalidCardDate = $(withText("Неверно указан срок действия карты"));
+//    private SelenideElement successfulOperation = $(withText("Операция одобрена Банком."));
+//    private SelenideElement errorOperation = $(withText("Ошибка! Банк отказал в проведении операции."));
+//    private ElementsCollection wrongFormat = $$(withText("Неверный формат"));
+//    private SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
+//    private SelenideElement cardExpired = $(withText("Истёк срок действия карты"));
+//    private SelenideElement invalidCardDate = $(withText("Неверно указан срок действия карты"));
 
 
     public PaymentWithCardPage() {
@@ -39,7 +40,7 @@ public class PaymentWithCardPage {
         nameField.setValue(data.getName());
         codeField.setValue(data.getCodeCvcCvv());
         buttonContinue.click();
-//        successfulOperation.shouldBe(visible, Duration.ofSeconds(5));
+
     }
 
 

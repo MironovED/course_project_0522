@@ -39,13 +39,13 @@ public class DataGenerator {
 
     public static String getNextMonth() {
         LocalDate date = LocalDate.now();
-        return String.format("%02d", date.plusMonths(1));
+        return String.format("%tm", date.plusMonths(1));
 
     }
 
     public static String getLastMonth() {
         LocalDate date = LocalDate.now();
-        return String.format("%02d", date.minusMonths(1));
+        return String.format("%tm", date.minusMonths(1));
 
     }
 

@@ -232,13 +232,6 @@ public class CardInfo {
                 "fg");
     }
 
-    public static CardInfo cardExpiredInTheLastYear() {
-        return new CardInfo(approvedCard().cardNumber,
-                getValidName("EN"),
-                DataGenerator.getCodeCvcCvv(),
-                getThisMonth(),
-                DataGenerator.getLastYear());
-    }
 
     public static CardInfo invalidYear() {
         return new CardInfo(approvedCard().cardNumber,
@@ -263,6 +256,14 @@ public class CardInfo {
         return new CardInfo(approvedCard().cardNumber,
                 getValidName("EN"),
                 "0",
+                getThisMonth(),
+                getThisYear());
+    }
+
+    public static CardInfo threeNullFieldCvcCvv() {
+        return new CardInfo(approvedCard().cardNumber,
+                getValidName("EN"),
+                "000",
                 getThisMonth(),
                 getThisYear());
     }
