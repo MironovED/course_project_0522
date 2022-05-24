@@ -77,7 +77,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payCardExpiresNextMonth() {
+    public void payCardWhichExpiresNextMonth() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -97,7 +97,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payCardExpiresNextYear() {
+    public void payWhichCardExpiresNextYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -117,7 +117,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payCardEmptyFields() {
+    public void payCardWithEmptyFields() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -139,7 +139,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payEmptyFieldCardNumber() {
+    public void payWhenEmptyFieldCardNumber() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -180,7 +180,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payFifteenDigitCardNumber() {
+    public void payWhenFifteenDigitCardNumber() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -201,7 +201,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payOneValueCardNumber() {
+    public void payWhenOneValueCardNumber() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -222,7 +222,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payEmptyFieldName() {
+    public void payWhenEmptyFieldName() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -243,7 +243,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payInvalidCharacters() {
+    public void payWhenInvalidCharacters() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -264,7 +264,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payNameInCyrillic() {
+    public void payWhenNameInCyrillic() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -285,7 +285,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payNumberNameField() {
+    public void payWhenNumberNameField() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -306,7 +306,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void payInvalidNameField() {
+    public void payWhenInvalidNameField() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -327,7 +327,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void OnlyFirstNameField() {
+    public void payWhenOnlyFirstNameField() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -348,7 +348,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void emptyFieldMonth() {
+    public void payWhenEmptyFieldMonth() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -369,7 +369,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void cardExpiresLastMonth() {
+    public void payCardWhichExpiresLastMonth() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -390,7 +390,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void nullInFieldMonth() {
+    public void checkWhenNullInFieldMonth() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -433,7 +433,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void expiredCardInTheCurrentYear() {
+    public void checkExpiredCardInTheCurrentYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -454,7 +454,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void invalidFieldMonth1_9() {
+    public void payWhenInvalidFieldMonth1_9() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -475,7 +475,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void invalidFieldMonth13_99() {
+    public void checkWhenInvalidFieldMonth13_99() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -496,7 +496,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void emptyFieldYear() {
+    public void payWhenEmptyFieldYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -517,7 +517,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void cardExpiresLastYear() {
+    public void payCardWhichExpiredLastYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -538,7 +538,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void nullInFieldYear() {
+    public void pqyWhenNullInFieldYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -580,7 +580,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void invalidYear() {
+    public void payCardWhichInvalidYear() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -601,7 +601,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void emptyFieldCvcCvv() {
+    public void payCardWhenEmptyFieldCvcCvv() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -622,7 +622,7 @@ public class PaymentWithCardTest {
     }
 
     @Test
-    public void nullFieldCvcCvv() {
+    public void payCardWhenNullFieldCvcCvv() {
         var titlePage = new TitlePage();
         titlePage.openBuyCard();
 
@@ -704,8 +704,6 @@ public class PaymentWithCardTest {
         assertEquals(beforeNumberLinesPay, actualNumberLinesPay);
 
     }
-
-
 
 
 }

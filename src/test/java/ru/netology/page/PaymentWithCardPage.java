@@ -21,13 +21,6 @@ public class PaymentWithCardPage {
     private SelenideElement codeField = $("[placeholder='999']");
     private SelenideElement buttonContinue = $$(".button .button__content .button__text").last();
 
-//    private SelenideElement successfulOperation = $(withText("Операция одобрена Банком."));
-//    private SelenideElement errorOperation = $(withText("Ошибка! Банк отказал в проведении операции."));
-//    private ElementsCollection wrongFormat = $$(withText("Неверный формат"));
-//    private SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
-//    private SelenideElement cardExpired = $(withText("Истёк срок действия карты"));
-//    private SelenideElement invalidCardDate = $(withText("Неверно указан срок действия карты"));
-
 
     public PaymentWithCardPage() {
         heading.shouldBe(Condition.visible);
