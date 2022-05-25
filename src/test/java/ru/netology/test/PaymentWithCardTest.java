@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ru.netology.data.CardInfo;
+import ru.netology.data.DataGenerator;
 import ru.netology.dbutils.DbUtils;
 import ru.netology.page.PaymentWithCardPage;
 import ru.netology.page.TitlePage;
@@ -46,7 +47,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.getApprovedCard());
+        payment.paymentByCardOrCredit(DataGenerator.getApprovedCard());
 
         successfulOperation.shouldBe(visible, Duration.ofSeconds(10));
         var actualNumberLinesOrder = DbUtils.getCountLinesOrderEntity();
@@ -65,7 +66,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.getDeclinedCard());
+        payment.paymentByCardOrCredit(DataGenerator.getDeclinedCard());
 
         successfulOperation.shouldBe(visible, Duration.ofSeconds(10));
         var actualNumberLinesOrder = DbUtils.getCountLinesOrderEntity();
@@ -85,7 +86,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.cardExpiresNextMonth());
+        payment.paymentByCardOrCredit(DataGenerator.cardExpiresNextMonth());
 
         successfulOperation.shouldBe(visible, Duration.ofSeconds(10));
         var actualNumberLinesOrder = DbUtils.getCountLinesOrderEntity();
@@ -105,7 +106,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.cardExpiresNextYear());
+        payment.paymentByCardOrCredit(DataGenerator.cardExpiresNextYear());
 
         successfulOperation.shouldBe(visible, Duration.ofSeconds(10));
         var actualNumberLinesOrder = DbUtils.getCountLinesOrderEntity();
@@ -125,7 +126,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFields());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFields());
 
         wrongFormat.shouldHaveSize(4);
         requiredField.shouldBe(visible);
@@ -147,7 +148,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFieldCardNumber());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFieldCardNumber());
 
         wrongFormat.shouldHaveSize(1);
         var actualNumberLinesOrder = DbUtils.getCountLinesOrderEntity();
@@ -167,7 +168,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.otherCardNumber());
+        payment.paymentByCardOrCredit(DataGenerator.otherCardNumber());
 
         errorOperation.shouldBe(visible, Duration.ofSeconds(10));
 
@@ -188,7 +189,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.fifteenDigitCardNumber());
+        payment.paymentByCardOrCredit(DataGenerator.fifteenDigitCardNumber());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -209,7 +210,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.oneValueCardNumber());
+        payment.paymentByCardOrCredit(DataGenerator.oneValueCardNumber());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -230,7 +231,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFieldName());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFieldName());
 
         requiredField.shouldBe(visible);
 
@@ -251,7 +252,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.invalidCharacters());
+        payment.paymentByCardOrCredit(DataGenerator.invalidCharacters());
 
         requiredField.shouldBe(visible);
 
@@ -272,7 +273,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.nameInCyrillic());
+        payment.paymentByCardOrCredit(DataGenerator.nameInCyrillic());
 
         requiredField.shouldBe(visible);
 
@@ -293,7 +294,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.numberNameField());
+        payment.paymentByCardOrCredit(DataGenerator.numberNameField());
 
         requiredField.shouldBe(visible);
 
@@ -314,7 +315,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.invalidNameField());
+        payment.paymentByCardOrCredit(DataGenerator.invalidNameField());
 
         requiredField.shouldBe(visible);
 
@@ -335,7 +336,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.onlyFirstNameField());
+        payment.paymentByCardOrCredit(DataGenerator.onlyFirstNameField());
 
         requiredField.shouldBe(visible);
 
@@ -356,7 +357,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFieldMonth());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFieldMonth());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -377,7 +378,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.cardExpiresLastMonth());
+        payment.paymentByCardOrCredit(DataGenerator.cardExpiresLastMonth());
 
         invalidCardDate.shouldBe(visible);
 
@@ -398,7 +399,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.nullInFieldMonth());
+        payment.paymentByCardOrCredit(DataGenerator.nullInFieldMonth());
 
         invalidCardDate.shouldBe(visible);
 
@@ -419,7 +420,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.enteringLettersInTheMonthField());
+        payment.paymentByCardOrCredit(DataGenerator.enteringLettersInTheMonthField());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -441,7 +442,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.expiredCardInTheCurrentYear());
+        payment.paymentByCardOrCredit(DataGenerator.expiredCardInTheCurrentYear());
 
         invalidCardDate.shouldBe(visible);
 
@@ -462,7 +463,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.invalidFieldMonth1_9());
+        payment.paymentByCardOrCredit(DataGenerator.invalidFieldMonth1_9());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -483,7 +484,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.invalidFieldMonth13_99());
+        payment.paymentByCardOrCredit(DataGenerator.invalidFieldMonth13_99());
 
         invalidCardDate.shouldBe(visible);
 
@@ -504,7 +505,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFieldYear());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFieldYear());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -525,7 +526,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.cardExpiresLastYear());
+        payment.paymentByCardOrCredit(DataGenerator.cardExpiresLastYear());
 
         cardExpired.shouldBe(visible);
 
@@ -546,7 +547,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.nullInFieldYear());
+        payment.paymentByCardOrCredit(DataGenerator.nullInFieldYear());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -567,7 +568,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.enteringLettersInTheFieldYear());
+        payment.paymentByCardOrCredit(DataGenerator.enteringLettersInTheFieldYear());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -588,7 +589,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.invalidYear());
+        payment.paymentByCardOrCredit(DataGenerator.invalidYear());
 
         invalidCardDate.shouldBe(visible);
 
@@ -609,7 +610,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.emptyFieldCvcCvv());
+        payment.paymentByCardOrCredit(DataGenerator.emptyFieldCvcCvv());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -630,7 +631,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.nullFieldCvcCvv());
+        payment.paymentByCardOrCredit(DataGenerator.nullFieldCvcCvv());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -651,7 +652,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.twoCharactersFieldCvcCvv());
+        payment.paymentByCardOrCredit(DataGenerator.twoCharactersFieldCvcCvv());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -672,7 +673,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.enteringLettersInTheFieldCvcCvv());
+        payment.paymentByCardOrCredit(DataGenerator.enteringLettersInTheFieldCvcCvv());
 
         wrongFormat.shouldHaveSize(1);
 
@@ -693,7 +694,7 @@ public class PaymentWithCardTest {
         var beforeNumberLinesPay = DbUtils.getCountLinesPaymentEntity();
 
         var payment = new PaymentWithCardPage();
-        payment.paymentByCardOrCredit(CardInfo.threeNullFieldCvcCvv());
+        payment.paymentByCardOrCredit(DataGenerator.threeNullFieldCvcCvv());
 
         wrongFormat.shouldHaveSize(1);
 
