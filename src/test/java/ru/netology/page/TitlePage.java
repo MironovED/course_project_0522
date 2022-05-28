@@ -15,5 +15,4 @@ public class TitlePage {
         return new PaymentWithCardPage();
     }
 
-
 }

@@ -86,6 +86,48 @@ public class DbUtils {
         return result;
     }
 
+    @SneakyThrows
+    public static String getStatusPaymentEntityTable() {
+        var statusSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1;";
+
+        String result = null;
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+                var countStmt = conn.createStatement();
+        ) {
+            try (var rs = countStmt.executeQuery(statusSQL)) {
+                if (rs.next()) {
+                    var status = rs.getString("status");
+                    result = status;
+                }
+            }
+        }
+        return result;
+    }
+
+    @SneakyThrows
+    public static String getStatusOrderEntityTable() {
+        var statusSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1;";
+
+        String result = null;
+        try (
+                var conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+                var countStmt = conn.createStatement();
+        ) {
+            try (var rs = countStmt.executeQuery(statusSQL)) {
+                if (rs.next()) {
+                    var status = rs.getString("status");
+                    result = status;
+                }
+            }
+        }
+        return result;
+    }
+
 
     @Value
     public static class CreditRequestEntityTable {

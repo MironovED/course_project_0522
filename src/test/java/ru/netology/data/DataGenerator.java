@@ -31,18 +31,6 @@ public class DataGenerator {
 
 //    Методы МЕСЯЦ
 
-//    public static String getThisMonth() {
-//        LocalDate date = LocalDate.now();
-//        return String.format("%02d", date.getMonthValue());
-//
-//    }
-
-    //    public static String getLastMonth(int value) {
-//        LocalDate date = LocalDate.now();
-//        return String.format("%tm", date.minusMonths(value));
-//
-//    }
-
     public static String getMonth(int value) {
         LocalDate date = LocalDate.now();
         return String.format("%tm", date.plusMonths(value));
@@ -66,21 +54,9 @@ public class DataGenerator {
         return (int) (Math.random() * ++max) + min;
     }
 
-
 // Методы ГОД
 
-//    public static String getThisYear() {
-//        return String.format("%ty", Year.now());
-//    }
-//    public static String getFutureYear() {
-//        return String.format("%ty", Year.now().plusYears(6));
-//    }
-
-    public static String getLastYear(int value) {
-        return String.format("%ty", Year.now().minusYears(value));
-    }
-
-    public static String getCurrentAndFutureYear(int value) {
+    public static String getYear(int value) {
         return String.format("%ty", Year.now().plusYears(value));
     }
 
@@ -110,7 +86,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo getDeclinedCard() {
@@ -118,7 +94,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo emptyFields() {
@@ -132,7 +108,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo otherCardNumber() {
@@ -140,7 +116,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo fifteenDigitCardNumber() {
@@ -148,7 +124,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo oneValueCardNumber() {
@@ -156,9 +132,8 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
-
 
 //    Поле ВЛАДЕЛЕЦ
 
@@ -167,7 +142,7 @@ public class DataGenerator {
                 "",
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo invalidCharacters() {
@@ -175,7 +150,7 @@ public class DataGenerator {
                 "?.:%№!",
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo nameInCyrillic() {
@@ -183,7 +158,7 @@ public class DataGenerator {
                 getValidName("ru"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo numberNameField() {
@@ -191,7 +166,7 @@ public class DataGenerator {
                 "12345",
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo invalidNameField() {
@@ -199,7 +174,7 @@ public class DataGenerator {
                 DataGenerator.getRandomInvalidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo onlyFirstNameField() {
@@ -207,18 +182,17 @@ public class DataGenerator {
                 DataGenerator.getFirstName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
-
-    //    Поле МЕСЯЦ
+//    Поле МЕСЯЦ
 
     public static CardInfo emptyFieldMonth() {
         return new CardInfo(approvedCard().getCardNumber(),
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 "",
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo cardExpiresNextMonth() {
@@ -226,15 +200,15 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(1),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo cardExpiresLastMonth() {
         return new CardInfo(approvedCard().getCardNumber(),
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
-                getMonth(11),
-                getCurrentAndFutureYear(0));
+                getMonth(-1),
+                getYear(0));
     }
 
     public static CardInfo nullInFieldMonth() {
@@ -242,7 +216,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 "00",
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo enteringLettersInTheMonthField() {
@@ -250,15 +224,15 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 "kf",
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo expiredCardInTheCurrentYear() {
         return new CardInfo(approvedCard().getCardNumber(),
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
-                getMonth(11),
-                getCurrentAndFutureYear(0));
+                getMonth(-1),
+                getYear(0));
     }
 
     public static CardInfo invalidFieldMonth1_9() {
@@ -266,7 +240,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 DataGenerator.getRandomInvalidMonth1_9(),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo invalidFieldMonth13_99() {
@@ -274,9 +248,8 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 DataGenerator.getRandomInvalidMonth13_99(),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
-
 
 //    Поле ГОД
 
@@ -293,7 +266,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(1));
+                getYear(0));
     }
 
     public static CardInfo cardExpiresLastYear() {
@@ -301,7 +274,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                DataGenerator.getLastYear(1));
+                getYear(-1));
     }
 
     public static CardInfo nullInFieldYear() {
@@ -326,9 +299,8 @@ public class DataGenerator {
                 getValidName("EN"),
                 DataGenerator.getCodeCvcCvv(),
                 getMonth(0),
-                getCurrentAndFutureYear(6));
+                getYear(6));
     }
-
 
 // Поле CVC/CVV
 
@@ -337,7 +309,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 "",
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo nullFieldCvcCvv() {
@@ -345,7 +317,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 "0",
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo threeNullFieldCvcCvv() {
@@ -353,7 +325,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 "000",
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo twoCharactersFieldCvcCvv() {
@@ -361,7 +333,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 "12",
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
     public static CardInfo enteringLettersInTheFieldCvcCvv() {
@@ -369,7 +341,7 @@ public class DataGenerator {
                 getValidName("EN"),
                 "kr",
                 getMonth(0),
-                getCurrentAndFutureYear(0));
+                getYear(0));
     }
 
 }
