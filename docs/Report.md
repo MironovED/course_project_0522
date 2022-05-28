@@ -13,7 +13,7 @@
 
 **Отчеты по результатам тестирования:**
 
-![Allure отчет]()
+[Allure отчет](https://github.com/MironovED/course_project_0522/blob/master/pic/Alure%20report.png)
 
 
-![Gradle отчет](file:///Users/E.Mironov/education_QA/course_project_0522/build/reports/tests/test/index.html)
+[Gradle отчет](file:///Users/E.Mironov/education_QA/course_project_0522/build/reports/tests/test/index.html)
